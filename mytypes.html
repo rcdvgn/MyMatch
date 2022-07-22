@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}MyTypes{% endblock %}
+{% block active_mytypes %}class="active"{% endblock %}
+{% block specific_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mytypes.css') }}">
+{% endblock %}
+{% block main %}
+<div class = "main_box">
+    {% if error: %}
+        <div class="head_box" style="height:6vh; line-height: 6vh; text-align: center;">
+            <span id="error">{{ error }}</span>
+        </div>
+        <div class="head_box" style="height:4vh; line-height: 4vh;">
+            
+            <div id="head1">
+                <span>Preference</span>
+            </div>
+            <div id="head2">
+                <span>Weight</span> 
+            </div>
+        </div>
+    {% else: %}
+        <div class="head_box" style="height:7vh;">
+            <div id="head1">
+                <span>Preference</span>
+            </div>
+            <div id="head2">
+                <span>Weight</span> 
+            </div>
+        </div>
+    {% endif %}
+    
+    <div class="body_box">
+        <form autocomplete="off" action="/mytypes" method="POST" id="mytypes_form">
+            <div id="input_box">
+                <div id="inp1">
+                    <input id = "add_pref" name="type" type = "text" placeholder="e.g. Intelligent" value= '{{ type }}' />
+                </div>
+                <div id="inp2">
+                    <input  id = "add_pref_val" name="val" class="small" placeholder="/10" value= '{{ val }}'/>
+                    <a href="#" onClick="document.getElementById('mytypes_form').submit();"><i class="material-symbols-outlined" id="add_btn">Add</i></a>
+                </div>
+            </div>
+        </form>
+        {% if types|length: %}
+            {% for i in range(types|length): %}
+                
+                <div class="row">
+                    <div class="row_left">{{ types[i][0] }}</div>
+                    <div class="row_right">
+                        {{ types[i][1] }}<label style="font-size: 17px;">/10</label>
+                        <a href="{{ url_for('views.delete_type', type=types[i][0]) }}"><i class="material-symbols-outlined" id="del_btn">Remove</i></a>
+                    </div>
+                </div>
+                
+                
+            {% endfor %}
+        {% else: %}
+            <label id="empty">You currently don't have any Types</label>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

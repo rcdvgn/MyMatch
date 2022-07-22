@@ -1,0 +1,159 @@
+.body_box
+{
+    height: 63vh;
+}
+.pref_val
+{
+    float: left;
+    
+    margin-left: 14.5vw;
+    width: 50px;
+    margin-right: 5vw;
+    
+    
+}
+input
+{
+    
+    
+    height: 42px;
+    
+    
+    border-radius: 5px;
+    
+    outline: none;
+    box-sizing: border-box;
+    background-color: #161616;
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 17px;
+    color: #ebebeb;
+    border: 1px solid #ebebeb;
+    vertical-align: 3px;
+}
+/*
+input.name
+{
+    border: 1px solid whitesmoke;
+}
+*/
+input.small
+{
+    width: 4vw;
+    text-align: center !important;
+    
+}
+
+
+input:focus
+{
+    background-color: #383838;
+
+    border: 2px solid #c859f7;
+    caret-color: #c859f7;
+
+}
+
+
+#error_box
+{
+    
+    width: 64.6vw;
+    position: absolute;
+    text-align: center;
+    margin-top: -2vh;
+}
+#error
+{
+    font-size: 16px; 
+    color: #cf352e;
+}
+
+#uname
+{
+    position: absolute;
+    margin-left: 3vw;
+    color: #ebebeb;
+    margin-bottom: 0.6;
+    line-height: 70px;
+    font-size: 20px; 
+}
+#input_box{
+    height: 10vh;
+    position: relative;
+    line-height: 10vh;
+}
+#inp1{
+    width: 50%;
+    text-align: center; 
+    height: 10vh;
+    float: left;
+    box-sizing: border-box;
+}
+#inp2{
+    width: 50%;
+    float: left;
+    text-align: center;
+    height: 10vh;
+    box-sizing: border-box;
+}
+#msg{
+    margin-top: 60px;
+}
+#add_btn{
+    font-size: 30px;
+    color: #ebebeb;
+    cursor: pointer;
+    position: absolute;
+    margin: auto;
+    height: 30px;
+    bottom: 0;
+    top: 0;
+    right: 20px;
+}
+#add_btn:hover{
+    color: #a68bce;
+}
+#del_btn{
+    font-size: 30px;
+    color: #ebebeb;
+    cursor: pointer;
+    position: absolute;
+    margin: auto;
+    height: 30px;
+    bottom: 0;
+    top: 0;
+    right: 20px;
+}
+#del_btn:hover{
+    color: #a68bce;
+}
+
+.row:last-child{
+    box-shadow: 0 -1px 0 #838383b4, 0 1px 0 #838383b4;
+}
+.row:hover{
+    border-radius: 5px;
+    border: none;
+    /* background-color: #5b2870; */
+    background-color: #838383b4;
+}
+.row_left{
+    height: 10vh;
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+    line-height: 10vh;
+    position: relative;
+}
+.row_right{
+    height: 10vh;
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+    line-height: 10vh;
+    position: relative;
+}
+#empty{
+    line-height: 36.8vh;
+}

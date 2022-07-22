@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}{{ name }}{% endblock %}
+{% block specific_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/edit_match.css') }}">
+{% endblock %}
+{% block main %}
+    <div class="main_box">
+        <div class="head_box">
+            <div id="head1">
+                Persons's Name:
+            </div>
+            <div id="head2">
+                <input type="text" value="{{ name }}" class="name" spellcheck="false">
+            </div>
+        </div>
+        <div class="body_box">
+            {% for i in range(rated_types|length): %}
+                <div class="row">
+                    <div class="row_left">{{ rated_types[i][0] }}</div>
+                    <div class="row_right">{{ rated_types[i][1] }}</div>
+                </div>
+            {% endfor %}
+            {% if types|length > 0: %}
+                {% for i in range(types|length): %}
+                    <div class="row">
+                        <div class="row_left">{{ types[i] }}</div>
+                        <div class="row_right">To complete</div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    
+{% endblock %}

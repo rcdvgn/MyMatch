@@ -1,0 +1,54 @@
+.head_box{
+    box-shadow: 0 1px 0 #838383b4;
+}
+#del_btn{
+    font-size: 30px;
+    color: #ebebeb;
+    cursor: pointer;
+    position: absolute;
+    margin: auto;
+    height: 30px;
+    bottom: 0;
+    top: 0;
+    right: 20px;
+}
+#del_btn:hover{
+    color: #a68bce;
+}
+
+.row:last-child{
+    box-shadow: 0 -1px 0 #838383b4, 0 1px 0 #838383b4;
+}
+.row:hover{
+    background-color: #838383b4;
+    border-radius: 5px;
+}
+.row_left{
+    height: 10vh;
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+    line-height: 10vh;
+    position: relative;
+    line-height: 10vh;
+}
+.row_right{
+    height: 10vh;
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+    line-height: 10vh;
+    position: relative;
+    line-height: 10vh;
+}
+#edit_btn{
+    font-size: 25px;
+    color: #ebebeb;
+    cursor: pointer;
+    position: absolute;
+    margin-left: 80px;
+    margin-top: 22px;;
+}
+#edit_btn:hover{
+    color: #a68bce;
+}

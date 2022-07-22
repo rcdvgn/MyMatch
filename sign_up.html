@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Sign Up{% endblock %}
+{% block active_sign_up %}class="active"{% endblock %}
+{% block specific_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sign_up.css') }}">
+{% endblock %}
+{% block main %}
+    <div class="description">
+        <p class="main_p">
+            <i><span>MyMatch</span></i> is a tool designed to help you find your match.
+        </p>
+        <p class="second_p">
+            Tailored <i><span>for</span></i> you, <i><span>by</span></i> you.
+        </p>
+    </div>
+    <div class="sign_up_box">
+        <div class="form_box">
+            <form autocomplete="off" action="/sign-up" method="POST"> 
+                
+                <label id="error">{{ error }}</label>
+                
+                
+                <p>Username:</p>
+                
+                <input id = "username" name="username" type = "text" value="{{ username }}" spellcheck="false"/>
+            
+                <p>Password:</p>
+            
+                <input name="password1" type = "password" value="{{ password1 }}"/>
+
+                <p>Confirm Password:</p>
+            
+                <input name="password2" type = "password" value="{{ password2 }}"/><br>
+                
+                <button type="submit">Create Account</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

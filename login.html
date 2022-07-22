@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block active_login %}class="active"{% endblock %}
+{% block specific_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+{% block main %}
+    <div class="description">
+        <p class="main_p">
+            <i><span>MyMatch</span></i> is a tool designed to help you find your match.
+        </p>
+        <p class="second_p">
+            Tailored <i><span>for</span></i> you, <i><span>by</span></i> you.
+        </p>
+    </div>
+    <div class="login_box">
+        <div class="form_box">
+            <form autocomplete="off" action="/login" method="POST">
+
+                <label id="error">{{ error }}</label>
+                
+                <p>Username:</p>
+                
+                <input id = "username" name="username" type = "text" value="{{ username }}" spellcheck="false"/>
+            
+                <p>Password:</p>
+            
+                <input id = "password" name="password" type = "password" value="{{ password }}"/><br>
+
+                <a href="/sign-up" id="new_acc">Create an account</a>
+                <button type="submit">Log In</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

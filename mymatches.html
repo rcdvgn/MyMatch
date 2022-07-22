@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}MyMatches{% endblock %}
+{% block active_mymatches %}class="active"{% endblock %}
+{% block specific_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mymatches.css') }}">
+{% endblock %}
+{% block main %}
+<div class = "main_box">
+    {% if matches|length > 0: %}
+
+        <div class="head_box">
+            
+            <div id="head1">
+                Match
+            </div>
+            <div id="head2">
+                Compatibility
+            </div> 
+        </div>
+    {% endif %}
+
+    <div class="body_box">
+        {% if matches|length %}
+            {% for i in range(matches|length): %}
+
+                <div class="row" id="row{{i}}">
+
+                    <div class="row_left">{{ matches[i][0] }}</div>
+
+                    <div class="row_right">
+                        {{ matches[i][1] }}%
+                        <a href="{{url_for('views.delete_match', match=matches[i][0])}}"><i class="material-symbols-outlined" id="del_btn">Remove</i></a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <label id="empty">You currently don't have any Matches</label>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

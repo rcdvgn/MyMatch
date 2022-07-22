@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}New Match{% endblock %}
+{% block active_new_match %}class="active"{% endblock %}
+{% block specific_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/new_match.css') }}">
+{% endblock %}
+{% block main %}
+<div class = "main_box">
+    <form autocomplete="off" action="/new-match" method="POST">
+        
+        {% if types|length >= 3: %}
+            {% if error: %}
+
+                <div class="head_box" style="height: 3vh; line-height: 3vh; text-align: center;">
+                    <span id="error">{{ error }}</span>
+                </div>
+
+                <div class="head_box" style="height: 12vh; line-height: 12vh;">
+                    <div id="head1">
+                        Person's Name:       
+                    </div>
+                    <div id="head2">
+                        <input name="name" class="name" spellcheck="false" placeholder="e.g. Mark">     
+                    </div>
+                </div>
+
+            {% else: %}
+
+                <div class="head_box">
+                    <div id="head1">
+                        Person's Name:       
+                    </div>
+                    <div id="head2">
+                        <input name="name" class="name" spellcheck="false" placeholder="e.g. Mark">     
+                    </div>
+                </div>
+
+            {% endif %}
+        {% endif %}
+        
+        <div class="body_box">
+            {% if types|length >= 3: %}
+                {% for i in range(types|length): %}
+
+                    <div class="row">
+                        <div class="row_left">{{ types[i] }}</div>
+                        <div class="row_right"><input  name = "val{{i}}" class="small" placeholder="/10"/></div>
+                    </div>
+
+                {% endfor %}
+
+                <div class="footer_box">
+                    <button>Calculate</button>
+                </div>
+
+            {% else %}
+                <label id="empty">You currently don't have enough Types</label>
+            {% endif %}
+            
+        </div>
+    </form>
+</div>
+{% endblock %}

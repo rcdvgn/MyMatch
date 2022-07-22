@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Compatibility{% endblock %}
+{% block active_new_match %}class="active"{% endblock %}
+{% block specific_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+{% endblock %}
+{% block main %}
+    {% if score >= 70: %}
+        <div class="score_border" style="background: linear-gradient(to right, #acf98b, #89F759);">
+            <div class='score'>{{ score }}%</div>
+        </div>
+    {% elif score >= 30: %}
+        <div class="score_border" style="background: linear-gradient(to right, #ffe44d, #ffd800);">
+            <div class='score'>{{ score }}%</div>
+        </div>
+    {% elif score < 30: %}
+        <div class="score_border" style="background: linear-gradient(to right, #dd726d, #cf352e);">
+            <div class='score'>{{ score }}%</div>
+        </div>
+    {% endif %}
+
+    <div class="msg">{{ msg }}</div>
+{% endblock %}

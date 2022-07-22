@@ -1,0 +1,51 @@
+.score_border{
+    margin: auto;
+    position: absolute;
+    top: 20vh;
+    left: 0;
+    right: 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32vh;
+    width: 32vh;
+    /* background: linear-gradient(to right, #6a3ead, #bd47c6); */
+    /* background-image: linear-gradient(to right, #c859f7, #89F759); */
+    
+    border-radius: 100%;
+}
+.score{
+    
+    margin: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30vh;
+    width: 30vh;
+    background: #0f0f0f;
+    border-radius: 100%;
+
+    color: #ebebeb;
+    font-family: 'Lora', serif;
+}
+.msg{
+    color: #ebebeb;
+    margin: auto;
+    position: absolute;
+    bottom: 20vh;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30vh;
+    width: 60vw;
+    font-family: 'Lora', serif;
+}

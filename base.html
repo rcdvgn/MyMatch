@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="icon" href="/static/icons/Logo.png" type="image/icon type">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&family=League+Spartan:wght@600&family=Luxurious+Roman&family=Lora&family=Orelega+One&family=Oswald:wght@600&family=Radio+Canada:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    {% block specific_css %}{% endblock %}
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/mymatches"><div class= "head"><big>M</big>y<big>M</big>atch</div></a>
+            <div class="user_box" id="user_box">
+                {% if session.username: %}
+                
+                    <div class="user_option">
+
+                        @{{ session.username }}
+                        <i class="material-symbols-outlined" id="arrow_btn" onClick="user_options()"><label id="arrow">expand_more</label></i>
+
+                    </div>
+                    <div class="user_option" id="user_option" style="display: none;">
+                        <a href="{{url_for('views.delete_account')}}">Delete Account</a>
+                    </div>
+                {% endif %}
+
+            </div>
+            <div class="navbar">
+                {% if session.username: %}
+                    <a href="{{ url_for('views.mymatches') }}" {% block active_mymatches %}{% endblock %}>MyMatches</a>
+                    <a href="{{ url_for('views.mytypes') }}" {% block active_mytypes %}{% endblock %}>MyTypes</a>
+                    <a href="{{ url_for('views.new_match') }}" {% block active_new_match %}{% endblock %}>New Match</a>
+                    <a href="{{ url_for('views.logout') }}">Log out</a>
+                {% else: %}
+                    <a href="{{ url_for('views.login') }}" {% block active_login %}{% endblock %}>Login</a>
+                    <a href="{{ url_for('views.sign_up') }}" {% block active_sign_up %}{% endblock %}>Sign Up</a>
+                {% endif %}
+
+            </div>
+        </header>
+        <div class="body">
+            <div class="c2"></div>
+            <div class="c1"></div>
+            {% block main %}{% endblock %}
+        </div>
+
+        <div class="footer">
+            Copyright &copy <label id="date"></label> Ricardo Vigliano. All rights reserved.
+        </div>
+
+    </div>
+</body>
+<script>
+    var d = new Date();
+    var curr_date = d.getFullYear();
+    document.getElementById("date").innerHTML = curr_date;
+
+
+    var expanded = false;
+    
+    function user_options(){
+        if (expanded == false){
+            expanded = true;
+            document.getElementById("arrow").innerText = "expand_less";
+            element = document.getElementById("user_option");
+            element.style.display = "block";            
+        }
+        else{
+            expanded = false;
+            document.getElementById("arrow").innerText = "expand_more";
+
+            element = document.getElementById("user_option");
+            element.style.display = "none";      
+        }
+    }
+
+    var user_box = document.getElementById('user_box');
+
+    document.addEventListener('click', function(event) {
+        var element = user_box.contains(event.target);
+        if (!element) {
+            if (expanded == true){
+                expanded = false;
+                document.getElementById("arrow").innerText = "expand_more";
+                element = document.getElementById("user_option");
+                element.style.display = "none";  
+            }
+        }
+    });
+</script>
+</html>
