@@ -4,7 +4,7 @@
 
 ## Introduction:
 
-**MyMatch** is a Web Application I, Ricardo Vigliano, started programming in the early days of my Software Development journey and now decided to give it a second chance. New functionalities were added and a lot was improved from the original version, although it still lacks core aspects I was able to acquire a better understanding of since then and am yet to implement through future updates. 
+**MyMatch** is a Web Application that I, Ricardo Vigliano, started programming in the early days of my Software Development journey and now decided to give it a second chance. New functionalities were added and a lot was improved from the original version, although it still lacks core aspects I was able to acquire a better understanding of since then and am yet to implement through future updates. 
 
 It was built using HTML/CSS, MySQL and the Python Framework: Flask. The application was created with the intention of rationalizing your day to day interactions. To help better understand, here's a quick run through of how it works.
 
